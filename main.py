@@ -9,7 +9,7 @@ cursor = connection.cursor()
 
 
 @app.route('/')
-def hello_world():
+def index():
   results = cursor.execute("Select Course# from classes group by Course#")
   courses = [row[0] for row in results]
   return render_template('index.html',courses=courses);
