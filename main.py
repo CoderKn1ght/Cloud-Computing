@@ -14,6 +14,7 @@ def hello_world():
   courses = [row[0] for row in results]
   return render_template('index.html',courses=courses);
 
+
 @app.route('/get_sections', methods=['GET', 'POST'])
 def get_sections():
   course = request.form['Course#']
