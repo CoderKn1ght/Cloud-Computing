@@ -1,6 +1,31 @@
 <html>
-<head><title>Main Page</title></head>
-<body>
-<h1>Hey its Python Flask application</h1>
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <title>JMeter Test</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="https://d3js.org/d3.v3.min.js"  charset="utf-8"></script>
+    </head>
+    <body>
+        <div class="container">
+                <div class="jumbotron text-center">
+                    <h1>Welcome to the JMeter Scaling Application</h1>
+                    <p align="right" class="lead">Name: Shashank Gaikaiwari<br/>
+                    Last 4 digits ID: 5812<br/>
+                    CSE 6331, Cloud Computing<br/>	</p>
+                </div>
+                <form name="get_sections" action="/get_sections" method="POST" enctype="multipart/form-data">
+                    <div style="padding-left:20px" class="form-group">
+                        <label>Course #</label>
+                        <select name="Course#">
+                            {% for course in courses %}
+                            <option value="{{course}}">{{course}}</option>
+                            {% endfor %}
+                        </select>
+                        <input type="submit" value="Fetch Sections"/>
+                    </div>
+                </form>
+        </div>
+    </body>
 </html>
