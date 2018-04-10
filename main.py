@@ -16,7 +16,7 @@ def hello_world():
 
 @app.route('/Hello')
 def hello():
-    return "Hello World"
+    return "Hello World";
 
 
 @app.route('/get_sections', methods=['GET', 'POST'])
