@@ -12,7 +12,7 @@ cursor = connection.cursor()
 def hello_world():
   results = cursor.execute("Select Course# from classes group by Course#")
   courses = [row[0] for row in results]
-  return render_template('sections.html',courses=courses);
+  return render_template('index.html',courses=courses);
 
 @app.route('/Hello')
 def hello():
