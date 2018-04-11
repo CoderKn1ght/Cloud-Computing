@@ -12,11 +12,7 @@ cursor = connection.cursor()
 def index():
   results = cursor.execute("Select Course# from classes group by Course#")
   courses = [row[0] for row in results]
-  return render_template('index.html',courses=courses);
-
-@app.route('/Hello')
-def hello():
-    return "Hello World";
+  return render_template('index.html',courses=courses)
 
 
 @app.route('/get_sections', methods=['GET', 'POST'])
@@ -25,6 +21,10 @@ def get_sections():
   results = cursor.execute("Select * from classes where Course#="+course)
   return render_template('sections.html',results=results,course=course)
 
+
+@app.teardown_appcontext
+def close_connection():
+    connection.close()
 
 if __name__ == '__main__':
   app.run(debug=True)
