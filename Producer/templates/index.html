@@ -16,19 +16,13 @@
                 </div>
                 <form name="get_sections" action="/get_sections" method="POST" enctype="multipart/form-data">
                     <div style="padding-left:20px" class="form-group">
-                        <label>Times #</label>
-                        <table>
-                            <tr>
-                                <th>Name</th>
-                                <th>Time</th>
-                            </tr>
-                            {% for result in results %}
-                            <tr>
-                                <td>{{result[0]}}</td>
-                                <td>{{result[1]}}</td>
-                            </tr>
-                             {% endfor %}
-                            </table>
+                        <label>Course #</label>
+                        <select name="Course#">
+                            {% for course in courses %}
+                            <option value="{{course}}">{{course}}</option>
+                            {% endfor %}
+                        </select>
+                        <input type="submit" value="Fetch Sections"/>
                     </div>
                 </form>
         </div>

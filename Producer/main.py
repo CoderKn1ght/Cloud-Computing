@@ -10,8 +10,9 @@ cursor = connection.cursor()
 
 @app.route('/')
 def index():
-    results = cursor.execute("Select * from Producer")
-    return render_template('index.html',results=results)
+    results = cursor.execute("Select Course# from classes group by Course#")
+    courses = [row[0] for row in results]
+    return render_template('index.html',courses=courses)
 
 
 @app.route('/get_sections', methods=['GET', 'POST'])
