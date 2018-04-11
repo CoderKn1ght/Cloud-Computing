@@ -10,21 +10,17 @@ cursor = connection.cursor()
 
 @app.route('/')
 def index():
-  results = cursor.execute("Select Course# from classes group by Course#")
-  courses = [row[0] for row in results]
-  return render_template('index.html',courses=courses)
+    results = cursor.execute("Select Course# from classes group by Course#")
+    courses = [row[0] for row in results]
+    return render_template('index.html',courses=courses)
 
 
 @app.route('/get_sections', methods=['GET', 'POST'])
 def get_sections():
-  course = request.form['Course#']
-  results = cursor.execute("Select * from classes where Course#="+course)
-  return render_template('sections.html',results=results,course=course)
+    course = request.form['Course#']
+    results = cursor.execute("Select * from classes where Course#="+course)
+    return render_template('sections.html',results=results,course=course)
 
-
-@app.teardown_appcontext
-def close_connection(error):
-    connection.close()
 
 if __name__ == '__main__':
-  app.run(debug=True)
+    app.run(debug=True)
