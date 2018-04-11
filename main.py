@@ -23,7 +23,7 @@ def get_sections():
 
 
 @app.teardown_appcontext
-def close_connection():
+def close_connection(error):
     connection.close()
 
 if __name__ == '__main__':
