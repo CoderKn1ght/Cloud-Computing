@@ -4,7 +4,7 @@ import pypyodbc
 app = Flask(__name__)
 app.secret_key = "Secret"
 
-connection = pypyodbc.connect("Driver={ODBC Driver 13 for SQL Server};Server=tcp:cloudtestdb.database.windows.net,1433;Database=cloudtest;Uid=shashank@cloudtestdb;Pwd=Cloud@6331;")
+connection = pypyodbc.connect("Driver={ODBC Driver 13 for SQL Server};Server=server;Database=db;Uid=uid;Pwd=pwd;")
 cursor = connection.cursor()
 
 
